@@ -1,0 +1,28 @@
+
+VAR
+    word: string
+    isPalindrome: boolean
+
+BEGIN
+    isPalindrome := True   // Assume the word is a palindrome initially
+
+    // Check if the word is empty or contains a single character
+    IF length(word) <= 1 THEN
+        isPalindrome := True
+    ELSE
+        // Compare characters at the ends of the word
+        FOR i FROM 1 TO length(word) DIV 2 DO
+            IF word[i] <> word[length(word) - i + 1] THEN
+                isPalindrome := False
+                BREAK  // Stop processing if a difference is found
+            ENDIF
+        ENDFOR
+    ENDIF
+
+    // Display the result
+    IF isPalindrome THEN
+        OUTPUT "The word is a palindrome."
+    ELSE
+        OUTPUT "The word is not a palindrome."
+    ENDIF
+END
